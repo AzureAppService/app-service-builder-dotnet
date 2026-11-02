@@ -4,6 +4,13 @@ A standalone, minimal ASP.NET app for learning how to deploy committed GitHub
 source with [App Service Builder](https://builderapps.azure.com/docs/). The app
 targets .NET 10 and has no NuGet package dependencies.
 
+## Preview
+
+The visual showcase is available at `/demo`; the root `/` endpoint remains a
+plain-text greeting.
+
+![The /demo .NET workbench with plum navigation, the Hello greeting, runtime details, and HTTP endpoint controls](https://github.com/user-attachments/assets/b001a779-2a48-4bb6-b12a-508659663941)
+
 **App Service Builder is in Private Preview. Use this sample for development and
 testing, not production.** Local validation does not establish preview runtime
 availability or end-to-end deployment readiness. A live preview deployment of
