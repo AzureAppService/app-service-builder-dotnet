@@ -45,7 +45,7 @@ The original `/` plain-text contract is unchanged.
 
 ### Installation
 
-Fork [this repository](https://github.com/Azure-Samples/app-service-builder-dotnet)
+Fork [this repository](https://github.com/AzureAppService/app-service-builder-dotnet)
 to your own GitHub account, then clone your fork. Replace `YOUR-GITHUB-USER`:
 
 ```sh
