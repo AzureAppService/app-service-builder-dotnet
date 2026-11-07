@@ -6,10 +6,9 @@ targets .NET 10 and has no NuGet package dependencies.
 
 ## Preview
 
-The visual showcase is available at `/demo`; the root `/` endpoint remains a
-plain-text greeting.
+The visual workbench is served directly at `/`, without a redirect.
 
-![The /demo .NET workbench with plum navigation, the Hello greeting, runtime details, and HTTP endpoint controls](https://github.com/user-attachments/assets/b001a779-2a48-4bb6-b12a-508659663941)
+![The .NET workbench with plum navigation, the Hello greeting, runtime details, and HTTP endpoint controls](https://github.com/user-attachments/assets/b001a779-2a48-4bb6-b12a-508659663941)
 
 **App Service Builder is in Private Preview. Use this sample for development and
 testing, not production.** Local validation does not establish preview runtime
@@ -20,9 +19,8 @@ this sample has not been qualified.
 
 | Endpoint | Response |
 | --- | --- |
-| `GET /` | HTTP 200, `App Service Builder / dotnet-web: Hello` followed by a newline |
+| `GET /` | HTTP 200, `text/html; charset=utf-8`, responsive .NET workbench displaying the public greeting |
 | `GET /health` | HTTP 200, `OK` followed by a newline |
-| `GET /demo` | HTTP 200, responsive HTML .NET workbench showing the public greeting and user-triggered requests to `/` and `/health` |
 | Unknown path | HTTP 404 |
 
 `SAMPLE_GREETING` changes the deliberately public greeting. The app does not
@@ -31,11 +29,13 @@ one .NET 10 web component, listening on port 8080 with `/health` as its health
 check. The manifest relies on Builder defaults for root routing, port 8080, and
 HTTP 200 as the successful health-check status.
 
-Open `/demo` for the visual showcase and template thumbnail view. It uses
+Open `/` for the visual showcase and template thumbnail view. It uses
 self-contained HTML, CSS, and JavaScript with no external assets or packages.
-The request buttons display actual endpoint responses and errors; the page does
-not report deployment status. Endpoint links remain usable without JavaScript.
-The original `/` plain-text contract is unchanged.
+The request buttons fetch the actual endpoints and display their status and content
+type. The root request summarizes the returned HTML title and public greeting;
+the health request shows the exact text body. HTML is parsed without executing it
+and the summary is inserted as text. Errors remain visible; the page does not
+report deployment status. Endpoint links remain usable without JavaScript.
 
 ## Getting Started
 
@@ -97,9 +97,13 @@ bash scripts/smoke-test.sh
 ```
 
 The script publishes independently, starts and stops only its own processes, and
-checks exact greeting/health bodies, HTTP 404, and unset, empty, and customized
-`SAMPLE_GREETING` values, plus `/demo` HTML and encoded greeting content.
-It uses port 8080; stop your earlier local run first.
+checks root HTML, encoded greeting content, exact health bodies, query strings,
+unsupported POST/HEAD methods (405), and HTTP 404 (including the removed showcase route)
+with unset, empty, customized, and HTML-sensitive `SAMPLE_GREETING` values.
+It uses port 8080 by default; stop your earlier local run first. If another
+application owns that port, run `SMOKE_TEST_PORT=8097 bash scripts/smoke-test.sh`
+with an available port. That test-only Kestrel endpoint override checks HTTP
+behavior on loopback; it does not verify the normal port 8080 binding.
 The GitHub Actions workflow runs the same check on pull requests and changes to
 `main`. Generated `bin/` and `obj/` files are not committed.
 
@@ -120,8 +124,8 @@ for the currently available Private Preview experience.
 3. Explicitly start a deployment using the Portal's deploy action. Wait for a
    successful terminal deployment state; source authorization or saving a source
    selection alone does not prove that an app is running.
-4. Open the runtime URL shown for your app. Verify `/` returns the greeting and
-   `/health` returns HTTP 200 with `OK`. If deployment fails, inspect its logs
+4. Open the runtime URL shown for your app. Verify `/` returns the HTML workbench
+   and public greeting, and `/health` returns HTTP 200 with `OK`. If deployment fails, inspect its logs
    before retrying; do not treat an accepted request as successful deployment.
 
 The manifest selects .NET platform version `"10"` and the standard publish path,
@@ -142,8 +146,8 @@ To try a different public greeting locally, stop the app first and run:
 SAMPLE_GREETING="Welcome" dotnet bin/sample-publish/BuilderDotnetSample.dll
 ```
 
-`GET /` now returns `App Service Builder / dotnet-web: Welcome` followed by a
-newline. Unset or empty values use `Hello`. **Never put a secret in
+`GET /` now returns HTML displaying `Welcome`. Unset or empty values use `Hello`.
+The greeting is HTML-encoded as text. **Never put a secret in
 `SAMPLE_GREETING`: its value is returned publicly without authentication.**
 
 For a deployed app, add `SAMPLE_GREETING` in Portal **Variables**. **Save only**

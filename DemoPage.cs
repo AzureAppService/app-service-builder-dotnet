@@ -180,7 +180,7 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
         <div class="section-heading"><h2 id="endpoints-title">Try a request</h2><p>Calls this app. No credentials required.</p></div>
         <div class="endpoints">
           <div class="endpoint">
-            <span class="method">GET</span><a class="path" href="/"><code>/</code></a><p>The public greeting, in plain text.</p>
+            <span class="method">GET</span><a class="path" href="/"><code>/</code></a><p>This HTML workbench and public greeting.</p>
             <button type="button" data-path="/" aria-label="Run GET /">Run <span aria-hidden="true">&#8599;</span></button>
           </div>
           <div class="endpoint">
@@ -217,8 +217,19 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
           const response = await fetch(path, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
           const text = await response.text();
           result.dataset.error = String(!response.ok);
-          heading.textContent = `GET ${path} - HTTP ${response.status}`;
-          body.textContent = response.ok ? text : `The endpoint returned an error.\n${text || 'No response body.'}`;
+          const contentType = response.headers.get('content-type') || 'Unknown content type';
+          heading.textContent = `GET ${path} - HTTP ${response.status} - ${contentType}`;
+          if (!response.ok) {
+            body.textContent = `The endpoint returned an error.\n${text || 'No response body.'}`;
+          } else if (path === '/' && contentType.startsWith('text/html')) {
+            const page = new DOMParser().parseFromString(text, 'text/html');
+            const greeting = page.querySelector('.greeting h2');
+            body.textContent = greeting
+              ? `${page.title}\nPublic greeting: ${greeting.textContent}`
+              : 'Received HTML, but the public greeting was not found.';
+          } else {
+            body.textContent = text;
+          }
         } catch (error) {
           result.dataset.error = 'true';
           heading.textContent = `GET ${path} - Request failed`;

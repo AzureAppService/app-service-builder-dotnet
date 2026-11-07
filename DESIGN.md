@@ -60,7 +60,7 @@ components:
 
 **Creative North Star: "Plum-and-neutral developer workbench"**
 
-This records the implemented `/demo` system in `DemoPage.cs`, not a broader
+This records the implemented `/` system in `DemoPage.cs`, not a broader
 component library. System typography, flat mineral surfaces, plum navigation,
 and monospaced HTTP details give the small sample a structured developer-tool
 identity.
@@ -152,6 +152,9 @@ show a wait cursor.
 GET badges are compact, pale-plum monospace labels. The shared result surface
 is hidden initially, then shows request status and a wrapping monospace body.
 Errors switch to the local red border, surface, and text treatment.
+The root request summarizes the fetched HTML title and public greeting as text;
+the health request shows its plain-text body. Both display HTTP status and
+content type. Returned HTML is never inserted as active page content.
 
 ### Focus and motion
 

@@ -9,18 +9,21 @@ web
 ## Users and purpose
 
 Developers evaluating a minimal ASP.NET sample for App Service Builder. The
-`/demo` showcase also supplies a recognizable visual for template thumbnails.
+`/` showcase also supplies a recognizable visual for template thumbnails.
 
 ## Capabilities and constraints
 
-The app uses .NET 10 without NuGet dependencies. `/` returns a public plain-text
-greeting, `/health` returns `OK`, and unknown routes return 404. The app binds
-port 8080. Preserve these contracts, `builder.yaml`, and the deployment workflow.
+The app uses .NET 10 without NuGet dependencies. `/` returns the HTML workbench
+with a public, HTML-encoded greeting, `/health` returns `OK`, and unknown routes
+return 404. The app binds port 8080. Preserve these contracts, `builder.yaml`, and
+the deployment workflow.
 `SAMPLE_GREETING` is public and must never contain a secret.
 
-The approved `/demo` page presents the actual greeting and existing runtime
+The approved `/` page presents the actual greeting and existing runtime
 facts. User-triggered request controls call only `/` and `/health` and display
-real responses or errors. There is no deployment telemetry or account backend.
+real responses or errors. Root requests summarize the returned HTML title and
+greeting as text; health requests display the plain-text body. There is no
+deployment telemetry or account backend.
 
 ## Brand commitments
 

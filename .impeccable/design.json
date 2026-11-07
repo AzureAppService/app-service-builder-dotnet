@@ -62,7 +62,7 @@
   ],
   "narrative": {
     "northStar": "Plum-and-neutral developer workbench",
-    "overview": "This records the implemented `/demo` system in `DemoPage.cs`, not a broader component library. System typography, flat mineral surfaces, plum navigation, and monospaced HTTP details give the small sample a structured developer-tool identity.",
+    "overview": "This records the implemented `/` system in `DemoPage.cs`, not a broader component library. System typography, flat mineral surfaces, plum navigation, and monospaced HTTP details give the small sample a structured developer-tool identity.",
     "keyCharacteristics": [
       "Plum navigation and greeting field against a pale neutral canvas.",
       "Compact, ruled facts and endpoint rows.",
