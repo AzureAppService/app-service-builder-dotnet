@@ -2,6 +2,11 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+if ! grep -Fq 'https://builder.appservice.azure.com/docs/' README.md ||
+    grep -Fq 'https://builderapps.azure.com/docs' README.md; then
+    printf 'README documentation links must use the canonical docs host.\n' >&2
+    exit 1
+fi
 port=${SMOKE_TEST_PORT:-8080}
 if [[ ! "$port" =~ ^[0-9]+$ ]] || ((port < 1024 || port > 65535)); then
     printf 'SMOKE_TEST_PORT must be an available port from 1024 to 65535.\n' >&2
@@ -86,6 +91,8 @@ assert_home() {
         ! grep -Fq "<h2>$encoded_greeting</h2>" "$smoke_dir/body" ||
         ! grep -Fq 'data-path="/"' "$smoke_dir/body" ||
         ! grep -Fq 'data-path="/health"' "$smoke_dir/body" ||
+        ! grep -Fq 'href="https://builder.appservice.azure.com/docs/guides/variables/"' "$smoke_dir/body" ||
+        grep -Fq 'https://builderapps.azure.com/docs' "$smoke_dir/body" ||
         grep -Fq '/demo' "$smoke_dir/body" ||
         grep -Fq 'must-not-appear-in-page' "$smoke_dir/body"; then
         printf 'Unexpected HTML response for %s (%s greeting): HTTP %s\n' "$path" "$mode" "$status" >&2

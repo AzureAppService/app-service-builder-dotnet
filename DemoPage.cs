@@ -195,7 +195,7 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
       </section>
       <section class="next" id="next-steps" aria-labelledby="next-title">
         <div><h2 id="next-title">Make the greeting yours.</h2><p>Set <code>SAMPLE_GREETING</code>, then restart locally or explicitly deploy to apply it. Its value is public: never use a secret.</p></div>
-        <a href="https://builderapps.azure.com/docs/guides/variables/">Variables guide <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://builder.appservice.azure.com/docs/guides/variables/">Variables guide <span aria-hidden="true">&#8599;</span></a>
       </section>
       <footer><span>App Service Builder &middot; Development and testing only.</span><span>Local responses do not verify deployment readiness.</span></footer>
     </main>

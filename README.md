@@ -1,7 +1,7 @@
 # App Service Builder: ASP.NET HTTP sample
 
 A standalone, minimal ASP.NET app for learning how to deploy committed GitHub
-source with [App Service Builder](https://builderapps.azure.com/docs/). The app
+source with [App Service Builder](https://builder.appservice.azure.com/docs/). The app
 targets .NET 10 and has no NuGet package dependencies.
 
 ## Preview
@@ -111,7 +111,7 @@ The GitHub Actions workflow runs the same check on pull requests and changes to
 
 ### Deploy your fork through the Portal
 
-Follow the [Portal quickstart](https://builderapps.azure.com/docs/quickstarts/portal/)
+Follow the [Portal quickstart](https://builder.appservice.azure.com/docs/quickstarts/portal/)
 for the currently available Private Preview experience.
 
 1. Ensure your fork's `main` branch contains the sample files. Open the App Service
@@ -155,7 +155,7 @@ persists desired values but does not change a running version; explicitly deploy
 to apply them. **Save and deploy** captures them in a new version. Wait for
 completion and verify the greeting. Activating a retained version uses that
 version's historical values. See the
-[variables guide](https://builderapps.azure.com/docs/guides/variables/).
+[variables guide](https://builder.appservice.azure.com/docs/guides/variables/).
 Do not override the reserved `PORT` variable.
 
 ### Cleanup
@@ -167,11 +167,11 @@ deletion does not remove your fork or separate resources.
 
 ## Resources
 
-- [App Service Builder documentation](https://builderapps.azure.com/docs/)
-- [Portal quickstart](https://builderapps.azure.com/docs/quickstarts/portal/)
-- [Samples](https://builderapps.azure.com/docs/samples/)
-- [Runtime requirements](https://builderapps.azure.com/docs/reference/runtimes/)
-- [Variables guide](https://builderapps.azure.com/docs/guides/variables/)
+- [App Service Builder documentation](https://builder.appservice.azure.com/docs/)
+- [Portal quickstart](https://builder.appservice.azure.com/docs/quickstarts/portal/)
+- [Samples](https://builder.appservice.azure.com/docs/samples/)
+- [Runtime requirements](https://builder.appservice.azure.com/docs/reference/runtimes/)
+- [Variables guide](https://builder.appservice.azure.com/docs/guides/variables/)
 - [Contributing](CONTRIBUTING.md) and [Microsoft Open Source Code of Conduct](.github/CODE_OF_CONDUCT.md)
 - [MIT license](LICENSE.md)
 
