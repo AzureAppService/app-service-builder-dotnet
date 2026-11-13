@@ -42,6 +42,7 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
     .rail { background: var(--plum-deep); color: #eee5f2; padding: 35px 22px 24px; display: flex; flex-direction: column; }
     .brand { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 650; line-height: 1.3; }
     .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #a48aae; border-radius: 9px; font-size: 12px; font-weight: 750; flex-shrink: 0; }
+    .brand-logo { width: 18px; height: 18px; vertical-align: middle; margin-right: 6px; }
     .rail nav { display: grid; gap: 8px; margin-top: 62px; }
     .rail nav a { display: flex; align-items: center; gap: 13px; padding: 11px 14px; border-radius: 6px; color: #eee5f2; text-decoration: none; }
     .rail nav a:first-child { background: #5b4266; color: white; }
@@ -53,7 +54,6 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
     .topbar { display: flex; justify-content: space-between; align-items: center; min-height: 90px; border-bottom: 1px solid var(--line); gap: 18px; font-size: 13px; color: var(--muted); }
     .breadcrumb { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .breadcrumb strong { color: var(--ink); font-weight: 600; }
-    .preview { border: 1px solid #d5ccd9; border-radius: 5px; padding: 4px 10px; white-space: nowrap; color: #694b74; font-size: 12px; }
     .intro { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin: 37px 0 26px; }
     h1 { margin: 0 0 5px; font-size: 32px; line-height: 1.2; letter-spacing: -.035em; font-weight: 650; }
     .intro p { color: var(--muted); margin: 0; max-width: 65ch; }
@@ -117,7 +117,6 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
       .workspace { padding-inline: 22px; }
       .topbar { min-height: 65px; font-size: 11px; gap: 8px; }
       .breadcrumb { gap: 7px; }
-      .preview { font-size: 10px; padding: 3px 6px; }
       .intro { margin-top: 28px; flex-wrap: wrap; gap: 14px; }
       h1 { font-size: 28px; }
       .intro p { font-size: 14px; }
@@ -140,7 +139,56 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
   <a class="skip" href="#main">Skip to content</a>
   <div class="shell">
     <aside class="rail" aria-label="Sample navigation">
-      <div class="brand"><span class="brand-mark" aria-hidden="true">.NET</span><span>App Service<br> Builder</span></div>
+      <div class="brand"><span class="brand-mark" aria-hidden="true">.NET</span><span><svg class="brand-logo" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4575_347)">
+<path d="M17.62 8.22L7.62 0.22C7.45 0.08 7.24 0 7 0C6.45 0 6 0.45 6 1C6 1.19 6.05 1.36 6.14 1.51L10.58 9L6.14 16.49C6.05 16.64 6 16.81 6 17C6 17.55 6.45 18 7 18C7.24 18 7.45 17.92 7.62 17.78L12.14 14.17L13.16 13.35L17.62 9.78C17.85 9.6 18 9.32 18 9C18 8.68 17.85 8.4 17.62 8.22Z" fill="url(#paint0_linear_4575_347)"/>
+<path d="M17.62 8.22L7.62 0.22C7.45 0.08 7.24 0 7 0C6.45 0 6 0.45 6 1C6 1.19 6.05 1.36 6.14 1.51L10.58 9L6.14 16.49C6.05 16.64 6 16.81 6 17C6 17.55 6.45 18 7 18C7.24 18 7.45 17.92 7.62 17.78L12.14 14.17L13.16 13.35L17.62 9.78C17.85 9.6 18 9.32 18 9C18 8.68 17.85 8.4 17.62 8.22Z" fill="url(#paint1_radial_4575_347)" fill-opacity="0.5"/>
+<path d="M18 9C18 9.32 17.85 9.6 17.62 9.78L13.16 13.35L12.14 14.17C12.73 13.7 12.88 12.87 12.5 12.23L10.58 9L6.14 1.51C6.05 1.36 6 1.19 6 1C6 0.45 6.45 0 7 0C7.24 0 7.45 0.08 7.62 0.22L17.62 8.22C17.85 8.4 18 8.68 18 9Z" fill="url(#paint2_linear_4575_347)"/>
+<path d="M3.625 16C3.98496 16 4.30512 16.19 4.48511 16.49C4.72506 16.88 4.66492 17.38 4.34497 17.7C4.145 17.8999 3.89495 18 3.625 18H1.00002C0.830074 18 0.659995 17.9601 0.510033 17.8701C0.110033 17.6401 -0.0799476 17.18 0.0300524 16.74C0.150055 16.31 0.550058 16 1.00002 16H3.625Z" fill="url(#paint3_linear_4575_347)"/>
+<path d="M5.25 12C5.58997 12 5.92012 12.18 6.11011 12.49C6.29007 12.8 6.29007 13.2 6.11011 13.51C5.92012 13.82 5.58997 14 5.25 14H1.00002C0.910076 14 0.819973 13.9899 0.740013 13.96C0.300059 13.8499 2.31351e-05 13.45 2.31351e-05 13C2.31351e-05 12.55 0.300059 12.1501 0.740013 12.04C0.819973 12.0101 0.910076 12 1.00002 12H5.25Z" fill="url(#paint4_linear_4575_347)"/>
+<path d="M2.01003 8C2.34998 8.00003 2.67991 8.18005 2.8699 8.48999C3.0499 8.79999 3.0499 9.20001 2.8699 9.51001C2.67991 9.81995 2.34998 9.99997 2.01003 10H1.00002C0.910061 10 0.819984 9.98994 0.740013 9.95996C0.300043 9.84994 2.31351e-05 9.44998 2.31351e-05 9C2.31351e-05 8.55002 0.300043 8.15006 0.740013 8.04004C0.819984 8.01006 0.910061 8 1.00002 8H2.01003Z" fill="url(#paint5_linear_4575_347)"/>
+<path d="M7.63992 8C7.97991 8 8.31002 8.18001 8.50002 8.48999C8.68 8.79998 8.68 9.20002 8.50002 9.51001C8.31002 9.81999 7.97991 10 7.63992 10H5.00002C4.91006 10 4.81998 9.98994 4.74001 9.95996C4.30004 9.84994 4.00002 9.44998 4.00002 9C4.00002 8.55002 4.30004 8.15006 4.74001 8.04004C4.81998 8.01006 4.91006 8 5.00002 8H7.63992Z" fill="url(#paint6_linear_4575_347)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_4575_347" x1="11.5687" y1="5.79567" x2="4.90825" y2="18.8817" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8B52F4"/>
+<stop offset="0.52" stop-color="#7A41DC"/>
+<stop offset="0.97" stop-color="#9529C1"/>
+</linearGradient>
+<radialGradient id="paint1_radial_4575_347" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(8 14.25) rotate(-18.1381) scale(7.6291 11.4609)">
+<stop offset="0.307474" stop-color="#7D45E2" stop-opacity="0"/>
+<stop offset="0.574002" stop-color="#3B148A"/>
+</radialGradient>
+<linearGradient id="paint2_linear_4575_347" x1="6.25" y1="-1.25" x2="17.5" y2="12.25" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3BD5FF"/>
+<stop offset="0.502883" stop-color="#367AF2"/>
+<stop offset="0.949445" stop-color="#9C6CFE"/>
+</linearGradient>
+<linearGradient id="paint3_linear_4575_347" x1="7.49994" y1="8.875" x2="-4.37506" y2="18" gradientUnits="userSpaceOnUse">
+<stop offset="0.0244608" stop-color="#367AF2"/>
+<stop offset="0.472842" stop-color="#7A41DC"/>
+<stop offset="0.804936" stop-color="#9529C1"/>
+</linearGradient>
+<linearGradient id="paint4_linear_4575_347" x1="7.49994" y1="8.875" x2="-4.37506" y2="18" gradientUnits="userSpaceOnUse">
+<stop offset="0.0244608" stop-color="#367AF2"/>
+<stop offset="0.472842" stop-color="#7A41DC"/>
+<stop offset="0.804936" stop-color="#9529C1"/>
+</linearGradient>
+<linearGradient id="paint5_linear_4575_347" x1="7.49994" y1="8.875" x2="-4.37506" y2="18" gradientUnits="userSpaceOnUse">
+<stop offset="0.0244608" stop-color="#367AF2"/>
+<stop offset="0.472842" stop-color="#7A41DC"/>
+<stop offset="0.804936" stop-color="#9529C1"/>
+</linearGradient>
+<linearGradient id="paint6_linear_4575_347" x1="7.49994" y1="8.875" x2="-4.37506" y2="18" gradientUnits="userSpaceOnUse">
+<stop offset="0.0244608" stop-color="#367AF2"/>
+<stop offset="0.472842" stop-color="#7A41DC"/>
+<stop offset="0.804936" stop-color="#9529C1"/>
+</linearGradient>
+<clipPath id="clip0_4575_347">
+<rect width="18" height="18" fill="white"/>
+</clipPath>
+</defs>
+</svg>App Service<br> Builder</span></div>
       <nav aria-label="On this page">
         <a href="#overview"><span class="nav-symbol" aria-hidden="true">&#9638;</span>Overview</a>
         <a href="#endpoints"><span class="nav-symbol" aria-hidden="true">&#8644;</span>HTTP endpoints</a>
@@ -151,7 +199,6 @@ FORM: Approved structured product workbench; restrained neutrals with a plum res
     <main class="workspace" id="main">
       <header class="topbar">
         <div class="breadcrumb"><span>Samples</span><span aria-hidden="true">/</span><strong>dotnet-web</strong></div>
-        <span class="preview">Private Preview</span>
       </header>
       <section id="overview" aria-labelledby="page-title">
         <div class="intro">

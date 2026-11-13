@@ -180,3 +180,5 @@ deletion does not remove your fork or separate resources.
 For security concerns, follow the [Microsoft Security Response Center reporting
 guidance](https://www.microsoft.com/msrc/faqs-report-an-issue) rather than opening
 a public issue containing sensitive information.
+
+The product mark uses the supplied App Service Builder asset in `assets/AppServiceBuilder.svg`. Its SVG is inlined in the root page to preserve the existing routes and security policy. Keep the inline copy and asset in sync when updating the logo.
