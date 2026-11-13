@@ -8,7 +8,9 @@ targets .NET 10 and has no NuGet package dependencies.
 
 The visual workbench is served directly at `/`, without a redirect.
 
-![The .NET workbench with plum navigation, the Hello greeting, runtime details, and HTTP endpoint controls](https://github.com/user-attachments/assets/b001a779-2a48-4bb6-b12a-508659663941)
+![The .NET root workbench with plum navigation, public greeting, runtime facts, and working HTTP request controls](docs/images/sample.png)
+
+Real local rendering in Microsoft Edge, not evidence of an Azure deployment.
 
 **App Service Builder is in Private Preview. Use this sample for development and
 testing, not production.** Local validation does not establish preview runtime
