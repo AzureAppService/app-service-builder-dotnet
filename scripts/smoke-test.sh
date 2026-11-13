@@ -91,6 +91,10 @@ assert_home() {
         ! grep -Fq "<h2>$encoded_greeting</h2>" "$smoke_dir/body" ||
         ! grep -Fq 'data-path="/"' "$smoke_dir/body" ||
         ! grep -Fq 'data-path="/health"' "$smoke_dir/body" ||
+        ! grep -Fq 'aria-label="Check app health"' "$smoke_dir/body" ||
+        ! grep -Fq 'id="customize"' "$smoke_dir/body" ||
+        ! grep -Fq 'href="https://learn.microsoft.com/aspnet/core/"' "$smoke_dir/body" ||
+        grep -Fq 'href="/health"' "$smoke_dir/body" ||
         ! grep -Fq 'href="https://builder.appservice.azure.com/docs/guides/variables/"' "$smoke_dir/body" ||
         grep -Fq 'https://builderapps.azure.com/docs' "$smoke_dir/body" ||
         grep -Fq '/demo' "$smoke_dir/body" ||

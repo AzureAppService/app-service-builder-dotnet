@@ -1,174 +1,115 @@
 ---
 name: .NET workbench
-description: Plum-and-neutral developer workbench for the ASP.NET sample.
+description: Daylight-blue and lavender developer workbench for the ASP.NET sample.
 colors:
-  ink: "#29252e"
-  muted: "#65606c"
-  plum: "#633d71"
-  plum-deep: "#39283f"
-  canvas: "#f5f4f7"
-  line: "#dedbe3"
+  ink: "#23314c"
+  muted: "#5d6d87"
+  accent: "#6250d1"
+  canvas: "#eff3fc"
+  line: "#e4e8f2"
   white: "#fff"
-  soft: "#ede8f1"
+  soft: "#f1effb"
 typography:
   display:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
-    fontSize: "64px"
-    fontWeight: 550
-    lineHeight: 1.12
-    letterSpacing: "-.035em"
-  headline:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
-    fontSize: "32px"
+    fontFamily: '"Segoe UI Variable", "Segoe UI", Arial, sans-serif'
+    fontSize: "68px"
     fontWeight: 650
-    lineHeight: 1.2
-    letterSpacing: "-.035em"
+    lineHeight: 1.1
+    letterSpacing: "-.04em"
+  headline:
+    fontFamily: '"Segoe UI Variable", "Segoe UI", Arial, sans-serif'
+    fontSize: "30px"
+    fontWeight: 650
+    lineHeight: 1.08
+    letterSpacing: "-.04em"
   body:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Segoe UI Variable", "Segoe UI", Arial, sans-serif'
     fontSize: "15px"
-    lineHeight: 1.6
+    lineHeight: 1.7
   code:
-    fontFamily: "ui-monospace, SFMono-Regular, Consolas, monospace"
-    fontSize: "13px"
+    fontFamily: "Consolas, monospace"
+    fontSize: "12px"
 rounded:
-  badge: "4px"
-  button: "5px"
-  navigation: "6px"
-  result: "7px"
-  endpoints: "8px"
-  overview: "10px"
+  button: "9px"
+  navigation: "9px"
+  result: "14px"
+  endpoints: "14px"
+  overview: "17px"
+  shell: "24px"
 components:
   request-button:
     backgroundColor: "{colors.white}"
-    textColor: "{colors.plum}"
+    textColor: "{colors.accent}"
     rounded: "{rounded.button}"
-    padding: "8px 14px"
-  request-button-hover:
-    backgroundColor: "{colors.soft}"
+    padding: "9px 14px"
   overview:
     backgroundColor: "{colors.white}"
     rounded: "{rounded.overview}"
   greeting:
-    backgroundColor: "{colors.plum}"
-    textColor: "{colors.white}"
-    padding: "26px 32px 28px"
+    backgroundColor: "#f5f2fd"
+    textColor: "#493777"
+    padding: "25px 29px"
 ---
 
 # Design System: .NET workbench
 
 ## Overview
 
-**Creative North Star: "Plum-and-neutral developer workbench"**
+The implemented `/` page in `DemoPage.cs` belongs to the approved soft daylight
+sample family while retaining its structured .NET request-workbench layout.
+A blue/lavender canvas surrounds an elevated white shell. A pale navigation
+rail, lavender greeting field, ruled facts, and monospaced HTTP details keep
+the content distinct from a centered hello-world sample.
 
-This records the implemented `/` system in `DemoPage.cs`, not a broader
-component library. System typography, flat mineral surfaces, plum navigation,
-and monospaced HTTP details give the small sample a structured developer-tool
-identity.
+Official .NET and App Service Builder artwork is local and inlined. Sources
+and trademark notices are in [assets/NOTICE.md](assets/NOTICE.md). ASP.NET
+and Builder documentation are explicitly separate navigation links.
 
-**Key Characteristics:**
-- Plum navigation and greeting field against a pale neutral canvas.
-- Compact, ruled facts and endpoint rows.
-- System sans-serif headings with monospace request details.
+## Layout and depth
 
-## Colors
+Desktop uses a 210px rail inside a 1230px maximum-width shell, with 35px
+workspace padding. Greeting and facts share a rounded 1.55:1 overview. Endpoint
+rows align method, path, description, and action. The white shell uses a soft
+shadow; inner surfaces use thin borders and restrained tonal gradients.
 
-### Primary
-- **Plum:** greeting field, links, and request-control text.
-- **Deep plum:** navigation background.
-- **Soft plum:** request-control hover surface.
+At 900px, the rail narrows to 175px, workspace padding becomes 25px, and the
+overview stacks. At 600px, the rail becomes a top navigation band, workspace
+padding becomes 21px, and endpoint descriptions move beneath their paths.
+The 19px mobile shell keeps the request controls at the right. Navigation
+symbols and the rail footnote are hidden on mobile.
 
-### Neutral
-- **Ink:** headings and primary content.
-- **Muted:** descriptions, labels, and footer text.
-- **Canvas:** workspace background.
-- **White:** facts and endpoint surfaces.
-- **Line:** container borders and section dividers.
+## Typography and shapes
 
-Additional state-specific colors remain local CSS values: focus violet
-(`#aa5bcc`), error border (`#a64b51`), error surface (`#fff1f1`), and error text
-(`#8a2931`).
+System sans-serif type carries the hierarchy through size, weight and spacing.
+The greeting is 68px, the page title 30px, and section headings 18px. Supporting
+text is primarily 11–13px. HTTP paths and response bodies use Consolas.
+Mobile greeting and page-title sizes are 58px and 26px. Variable greeting and
+response content wraps anywhere rather than overflowing.
 
-## Typography
+Surfaces use 14–24px corner rounding; outlined request controls use 9px rounding
+and a minimum 40px height. Method labels are noninteractive, lavender-backed
+monospace badges. Navigation anchors do not imply selected or telemetry state.
 
-The display, headline, and body roles share the system sans-serif stack.
-The greeting uses the display role; the page title uses headline. Section
-headings are (20px), secondary headings (16px), and supporting text primarily
-(12–13px). Copy in the introduction and next-step guidance is limited to (65ch).
-Paths, methods, port values, and returned bodies use system monospace.
+## Request controls and customization
 
-At the mobile breakpoint, the greeting drops to (56px), the page title to
-(28px), and introductory copy to (14px). Greeting and result text wrap anywhere
-to accommodate long public values.
+Both controls call existing local endpoints and are disabled while a request
+is pending. The initially hidden, live result surface displays real status,
+content type, and a wrapping text body. Root requests summarize the fetched
+HTML title and public greeting without executing or inserting returned HTML.
+Health requests display the exact text body inline; they do not navigate or
+download it. Errors stay visible and the same control can retry.
 
-## Layout
+The customization disclosure names `SAMPLE_GREETING` and its source files,
+explains public-value and redeployment behavior, and does not infer a user's
+fork or edit deployment settings. Local responses do not verify Azure readiness.
 
-Desktop uses a (230px) rail beside a flexible workspace, with workspace padding
-of (52px) and a maximum workspace width of (1510px). The overview places a
-greeting and facts side by side in a (1.8:1) grid; endpoint rows align method,
-path, description, and action.
+## Accessibility and motion
 
-At widths up to (1100px), the rail becomes (190px), workspace padding becomes
-(30px), and the overview ratio narrows. At widths up to (760px), the rail
-becomes a top navigation band, workspace padding becomes (22px), and the
-overview stacks. Endpoint descriptions move beneath paths, while Run controls
-remain at the right. Navigation symbols and rail footnote are hidden on mobile.
-At widths from (1600px), workspace padding increases to (70px).
+Focus-visible uses a 3px violet outline with 4px offset. A skip link appears
+on focus; buttons and disclosures are keyboard-operable. Error wording and
+visible results communicate state independently of color. Reduced-motion
+users receive no control animation or smooth-scroll requirement.
 
-## Elevation & Depth
-
-There are no shadows. Depth comes from the deep navigation band, saturated
-greeting field, white content surfaces, pale canvas, and thin borders.
-
-## Shapes
-
-Rectangular surfaces have modest corner rounding. The overview clips its
-greeting and facts into one shared container. Endpoint rows share an outlined
-container and internal dividers. Small method badges and code labels use
-tighter rounding than content containers; there are no pill-shaped controls.
-
-## Components
-
-### Navigation
-
-The desktop rail uses light text, a filled Overview anchor, and a lighter plum
-hover fill. These are same-page anchors; the Overview fill is static, not a
-scroll-position indicator. Mobile navigation wraps horizontally.
-
-### Greeting and facts
-
-The large greeting field pairs a small response label and outlined request
-badge with display-sized content. Facts use a definition list with thin rules,
-muted labels, and right-aligned values.
-
-### Request controls
-
-White outlined buttons use plum text, a minimum height of (40px), and a
-(150ms ease-out) background/border transition. Hover uses soft plum; active
-uses a deeper pale plum. While requesting, both controls are disabled and
-show a wait cursor.
-
-### Method badges and results
-
-GET badges are compact, pale-plum monospace labels. The shared result surface
-is hidden initially, then shows request status and a wrapping monospace body.
-Errors switch to the local red border, surface, and text treatment.
-The root request summarizes the fetched HTML title and public greeting as text;
-the health request shows its plain-text body. Both display HTTP status and
-content type. Returned HTML is never inserted as active page content.
-
-### Focus and motion
-
-Focus-visible uses a (3px) violet outline with (5px) offset. A skip link appears
-on focus. Anchor scrolling is smooth; reduced-motion preference disables smooth
-scrolling and button transitions.
-
-## Do's and Don'ts
-
-### Do:
-- **Do** retain system typography and monospace HTTP details.
-- **Do** use flat tonal surfaces and thin dividers rather than shadows.
-- **Do** preserve wrapping for variable greeting and response content.
-
-### Don't:
-- **Don't** replace the approved plum-and-neutral identity with another palette.
-- **Don't** introduce decorative charts or telemetry widgets into this small workbench.
+Retain factual content, official artwork, variable-value wrapping and real
+responses. Additional charts, monitoring state, or simulated success do not
+belong in this sample.

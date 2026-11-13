@@ -8,9 +8,12 @@ targets .NET 10 and has no NuGet package dependencies.
 
 The visual workbench is served directly at `/`, without a redirect.
 
-![The .NET root workbench with plum navigation, public greeting, runtime facts, and working HTTP request controls](docs/images/sample.png)
+![The daylight .NET root workbench with official logo, public greeting, runtime facts, and inline HTTP request controls](docs/images/sample.png)
 
 Real local rendering in Microsoft Edge, not evidence of an Azure deployment.
+ASP.NET documentation is separate from Builder documentation. **Customize the
+public greeting** discloses the source variable `SAMPLE_GREETING`; it does not
+infer your fork or edit your deployment.
 
 **App Service Builder is in Private Preview. Use this sample for development and
 testing, not production.** Local validation does not establish preview runtime
@@ -37,7 +40,7 @@ The request buttons fetch the actual endpoints and display their status and cont
 type. The root request summarizes the returned HTML title and public greeting;
 the health request shows the exact text body. HTML is parsed without executing it
 and the summary is inserted as text. Errors remain visible; the page does not
-report deployment status. Endpoint links remain usable without JavaScript.
+report deployment status. The root link remains usable without JavaScript; inspect `/health` with curl when scripts are off. The health control stays inline, with visible errors and retry via the same button.
 
 ## Getting Started
 
@@ -182,3 +185,7 @@ guidance](https://www.microsoft.com/msrc/faqs-report-an-issue) rather than openi
 a public issue containing sensitive information.
 
 The product mark uses the supplied App Service Builder asset in `assets/AppServiceBuilder.svg`. Its SVG is inlined in the root page to preserve the existing routes and security policy. Keep the inline copy and asset in sync when updating the logo.
+
+Official ecosystem logo sources and trademark notices are documented in
+[assets/NOTICE.md](assets/NOTICE.md). Artwork is stored locally and inlined;
+no remote image or font requests are needed to render the root page.

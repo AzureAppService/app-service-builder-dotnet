@@ -1,24 +1,18 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T21:24:38Z",
+  "generatedAt": "2026-11-13T16:10:46.588545+00:00",
   "title": "Design System: .NET workbench",
   "extensions": {
-    "motion": [
+    "motion": [],
+    "breakpoints": [
       {
-        "name": "request-control",
-        "value": "background 150ms ease-out, border-color 150ms ease-out",
-        "purpose": "Button state changes; disabled for reduced motion."
+        "name": "compact-desktop-max",
+        "value": "900px"
       },
       {
-        "name": "anchor-scroll",
-        "value": "smooth",
-        "purpose": "Same-page navigation; auto for reduced motion."
+        "name": "mobile-max",
+        "value": "600px"
       }
-    ],
-    "breakpoints": [
-      { "name": "compact-desktop-max", "value": "1100px" },
-      { "name": "mobile-max", "value": "760px" },
-      { "name": "wide-min", "value": "1600px" }
     ]
   },
   "components": [
@@ -26,57 +20,55 @@
       "name": "Request button",
       "kind": "button",
       "refersTo": "request-button",
-      "description": "Outlined action for a user-triggered HTTP request.",
-      "html": "<button class=\"ds-request\">Run <span aria-hidden=\"true\">↗</span></button>",
-      "css": ".ds-request{font:600 12px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--plum,#633d71);border:1px solid #d6c9df;border-radius:5px;background:white;padding:8px 14px;cursor:pointer;min-height:40px;transition:background 150ms ease-out,border-color 150ms ease-out}.ds-request:hover{background:var(--soft,#ede8f1);border-color:#9c7bab}.ds-request:active{background:#dfd1e6}.ds-request:focus-visible{outline:3px solid #aa5bcc;outline-offset:5px}.ds-request:disabled{cursor:wait;background:#eee8f2;color:#716078}@media(prefers-reduced-motion:reduce){.ds-request{transition:none}}"
+      "description": "Outlined action for a real user-triggered HTTP request.",
+      "html": "<button>Run <span aria-hidden=\"true\">\u2197</span></button>",
+      "css": "button { font:inherit; cursor:pointer; }\nbutton:hover { background:var(--soft); }\nbutton:disabled { opacity:.6; cursor:wait; }"
     },
     {
       "name": "Section navigation",
       "kind": "nav",
-      "description": "Light links on deep plum; Overview has a static filled treatment.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"On this page\"><a href=\"#overview\">Overview</a><a href=\"#endpoints\">HTTP endpoints</a><a href=\"#next-steps\">Next steps</a></nav>",
-      "css": ".ds-nav{display:grid;gap:8px;background:var(--plum-deep,#39283f);padding:22px;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.ds-nav a{padding:11px 14px;border-radius:6px;color:#eee5f2;text-decoration:none}.ds-nav a:first-child{background:#5b4266;color:white}.ds-nav a:hover{background:#684e73}.ds-nav a:focus-visible{outline:3px solid #aa5bcc;outline-offset:5px}@media(max-width:760px){.ds-nav{display:flex;flex-wrap:wrap;gap:5px}.ds-nav a{padding:7px 10px;font-size:12px}}"
+      "description": "Same-page links on a pale lavender rail, with no invented selected state.",
+      "html": "<aside class=\"rail\"><nav aria-label=\"On this page\"><a href=\"#overview\">Overview</a><a href=\"#endpoints\">HTTP endpoints</a><a href=\"#next-steps\">Next steps</a></nav></aside>",
+      "css": ".rail nav { display:grid; gap:8px; margin-top:42px; }\n.rail nav a { display:flex; gap:12px; padding:10px 12px; border-radius:9px; color:#536280; }\n.rail nav a:hover { background:#e4e0f6; }"
     },
     {
       "name": "GET badge",
       "kind": "chip",
       "description": "Noninteractive HTTP method label.",
-      "html": "<span class=\"ds-method\">GET</span>",
-      "css": ".ds-method{display:inline-block;color:#684276;background:#eee8f2;border-radius:4px;padding:3px 8px;text-align:center;font:650 11px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace}"
+      "html": "<span class=\"method\">GET</span>",
+      "css": ".method { background:#eeebfc; color:#6252bd; border-radius:7px; padding:3px 7px; text-align:center; font:600 11px/1.7 Consolas,monospace; }"
     },
     {
       "name": "Greeting field",
       "kind": "card",
       "refersTo": "greeting",
-      "description": "Plum response field; Hello is the sample default, not live snippet data.",
-      "html": "<div class=\"ds-greeting\"><div class=\"ds-response-label\"><span>Public greeting</span><code>GET /</code></div><h2>Hello</h2><p>App Service Builder / dotnet-web</p><p class=\"ds-public-note\">Rendered from SAMPLE_GREETING. Defaults to Hello.</p></div>",
-      "css": ".ds-greeting{background:var(--plum,#633d71);color:#f4eaf8;padding:26px 32px 28px;min-height:280px;display:flex;flex-direction:column;align-items:start;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.ds-response-label{display:flex;justify-content:space-between;width:100%;align-items:center;font-size:12px;color:#e4d3ec;gap:12px}.ds-response-label code{font:13px ui-monospace,SFMono-Regular,Consolas,monospace;color:white;border:1px solid #a78bb5;border-radius:4px;padding:3px 8px}.ds-greeting h2{font-size:64px;line-height:1.12;font-weight:550;letter-spacing:-.035em;margin:28px 0 18px;max-width:100%;overflow-wrap:anywhere;color:white}.ds-greeting p{margin:auto 0 0;color:#eee0f4;font-size:13px}.ds-greeting .ds-public-note{margin-top:5px;font-size:12px;color:#e1cfe9}@media(max-width:760px){.ds-greeting{min-height:255px;padding:22px}.ds-greeting h2{font-size:56px}}"
+      "description": "Pale lavender response field; Hello is the sample default, not live snippet data.",
+      "html": "<div class=\"greeting\"><div class=\"response-label\"><span>Public greeting</span><code>GET /</code></div><h2>Hello</h2><p>App Service Builder / dotnet-web</p><p class=\"public-note\">Rendered from SAMPLE_GREETING. Defaults to Hello.</p></div>",
+      "css": ".greeting { padding:25px 29px; min-height:255px; background:radial-gradient(ellipse at 0 90%,#e5eefd,transparent 75%),#f5f2fd; display:flex; flex-direction:column; align-items:flex-start; }\n.response-label { display:flex; justify-content:space-between; gap:14px; width:100%; font-size:11px; color:#625291; }\n.greeting h2 { margin:26px 0 22px; font-size:68px; font-weight:650; line-height:1.1; color:#493777; max-width:100%; overflow-wrap:anywhere; }\n.greeting p { margin:auto 0 0; font-size:12px; color:#5c6d89; }\n.greeting .public-note { font-size:10px; margin-top:6px; }"
     },
     {
       "name": "Response result",
       "kind": "custom",
-      "description": "Revealed response surface; placeholder text here demonstrates typography only.",
-      "html": "<div class=\"ds-result\"><div class=\"ds-result-heading\">GET /health - HTTP 200</div><pre>OK</pre></div>",
-      "css": ".ds-result{border:1px solid var(--line,#dedbe3);border-radius:7px;background:#f0eef3;padding:14px 19px;color:var(--ink,#29252e);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.ds-result-heading{display:flex;gap:12px;align-items:center;font-size:12px;font-weight:600}.ds-result pre{font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 0}.ds-result[data-error=true]{border-color:#a64b51;background:#fff1f1;color:#8a2931}"
+      "description": "Revealed response surface; example text demonstrates typography only.",
+      "html": "<div class=\"result\"><div class=\"result-heading\">GET /health - HTTP 200</div><pre>OK</pre></div>",
+      "css": ".result { margin-top:14px; padding:17px 20px; border:1px solid #dce3f1; border-radius:14px; background:linear-gradient(145deg,#f1f5fe,#f1edf9); }\n.result-heading { font-size:12px; font-weight:600; }\n.result pre { margin-top:10px; }\n.result[data-error=\"true\"] { border-color:#ac5a62; background:#fff1f1; color:#8a2931; }"
     }
   ],
   "narrative": {
-    "northStar": "Plum-and-neutral developer workbench",
-    "overview": "This records the implemented `/` system in `DemoPage.cs`, not a broader component library. System typography, flat mineral surfaces, plum navigation, and monospaced HTTP details give the small sample a structured developer-tool identity.",
+    "northStar": "Daylight-blue and lavender .NET workbench",
+    "overview": "A distinct request-workbench layout within the approved shared daylight sample family. The authoritative implementation is DemoPage.cs.",
     "keyCharacteristics": [
-      "Plum navigation and greeting field against a pale neutral canvas.",
-      "Compact, ruled facts and endpoint rows.",
-      "System sans-serif headings with monospace request details."
+      "Elevated white rounded shell with pale navigation and lavender greeting.",
+      "Official ecosystem and Builder marks with separate documentation links.",
+      "Ruled facts, real endpoint controls and monospaced response details."
     ],
     "rules": [],
     "dos": [
-      "Do retain system typography and monospace HTTP details.",
-      "Do use flat tonal surfaces and thin dividers rather than shadows.",
-      "Do preserve wrapping for variable greeting and response content."
+      "Retain the shared daylight foundation and distinct .NET workbench layout.",
+      "Preserve real HTTP results and variable greeting wrapping."
     ],
     "donts": [
-      "Don't replace the approved plum-and-neutral identity with another palette.",
-      "Don't introduce decorative charts or telemetry widgets into this small workbench."
+      "Do not introduce charts, telemetry widgets or simulated success."
     ]
   }
 }

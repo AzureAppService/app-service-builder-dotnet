@@ -27,9 +27,13 @@ deployment telemetry or account backend.
 
 ## Brand commitments
 
-The approved direction is a distinct, structured .NET workbench with plum
-accents and refined neutral surfaces. Preserve factual sample content, use
-responsive layouts, accessible contrast, and keyboard-operable controls.
+The approved direction is a distinct, structured .NET workbench in the shared
+daylight-blue/lavender sample family: an elevated white rounded shell, pale
+navigation, official .NET and Builder marks, and a lavender public-greeting
+surface. Preserve factual sample content, responsive layouts, accessible
+contrast, and keyboard-operable controls. ASP.NET documentation is separate
+from Builder documentation. Customization discloses the source variable name
+without inferring a fork or modifying deployment settings.
 
 ## Evidence on hand
 
